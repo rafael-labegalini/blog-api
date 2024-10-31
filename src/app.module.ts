@@ -11,20 +11,20 @@ import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: "mysql",
-      host: "localhost",
+      type: 'mysql',
+      host: 'localhost',
       port: 3306,
-      username: "unicesumar",
-      password: "unicesumar",
-      database: "blog",
+      username: 'unicesumar',
+      password: 'unicesumar',
+      database: 'blog',
       entities: [Category, User],
-      synchronize: true
+      synchronize: true,
     }),
     CategoriesModule,
     UsersModule,
-    AuthModule
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
