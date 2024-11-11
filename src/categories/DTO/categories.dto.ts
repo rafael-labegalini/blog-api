@@ -1,5 +1,5 @@
 export class CategoryDTO {
-    name: string
-    description: string
-    isActive: boolean
+  name: string;
+  description: string;
+  isActive: boolean;
 }
