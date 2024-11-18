@@ -2,6 +2,8 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
 import { PasswordService } from './password/password.service';
+import { ProfileDto } from './auth.dto';
+import { User } from 'src/users/users.entity';
 
 export interface AuthResult {
   access_token: string;
@@ -32,5 +34,9 @@ export class AuthService {
     return {
       access_token: await this.jwtService.signAsync({ sub, email }),
     };
+  }
+
+  async updateProfile(profileDto: ProfileDto, user: User) {
+    return this.usersService.updateProfile(user, profileDto);
   }
 }

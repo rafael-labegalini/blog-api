@@ -8,3 +8,9 @@ export class SignInDto {
   @IsNotEmpty()
   password: string;
 }
+
+export class ProfileDto {
+  @IsNotEmpty()
+  name: string;
+  password?: string
+}

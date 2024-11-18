@@ -7,7 +7,7 @@ import {
   Request,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { SignInDto } from './auth.dto';
+import { ProfileDto, SignInDto } from './auth.dto';
 import { AuthGuard } from './auth.guard';
 
 @Controller()
@@ -23,5 +23,11 @@ export class AuthController {
   @Get('profile')
   async profile(@Request() req: Request) {
     return req['user'];
+  }
+
+  @UseGuards(AuthGuard)
+  @Post("profile")
+  async updateProfile(@Body() data: ProfileDto, @Request() request: Request) {
+    return await this.authService.updateProfile(data, request["user"]);
   }
 }

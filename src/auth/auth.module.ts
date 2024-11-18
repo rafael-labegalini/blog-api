@@ -13,7 +13,7 @@ import { User } from '../users/users.entity';
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '5m' },
+      signOptions: { expiresIn: '30m' },
     }),
     TypeOrmModule.forFeature([User]),
   ],
